@@ -1,0 +1,229 @@
+/* Checkout.css – uses same palette */
+:root {
+  --ink: #1a1208;
+  --gold: #c8902a;
+  --gold-light: #e8b96a;
+  --parchment: #faf7f2;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+.checkout-container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+  font-family: 'Inter', 'Segoe UI', sans-serif;
+}
+
+.checkout-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--ink);
+}
+.checkout-empty i {
+  font-size: 3rem;
+  color: var(--gold);
+}
+.back-to-shop {
+  display: inline-block;
+  margin-top: 20px;
+  color: var(--gold);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* Progress bar */
+.checkout-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+.step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+}
+.step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: #e4dccd;
+  color: #8a7e6f;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+}
+.step.active .step-number {
+  background: var(--gold);
+  color: white;
+}
+.step-label {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: #8a7e6f;
+}
+.step.active .step-label {
+  color: var(--ink);
+}
+.progress-line {
+  width: 60px;
+  height: 2px;
+  background: #e4dccd;
+  margin: 0 12px 20px;
+}
+
+/* Checkout content */
+.checkout-content {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 2px 12px rgba(26,18,8,0.06);
+}
+
+.checkout-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 24px;
+  color: var(--ink);
+}
+
+/* Order summary */
+.order-items {
+  margin-bottom: 24px;
+}
+.order-item {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #f0e7d5;
+  margin-bottom: 16px;
+}
+.order-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+  border: 1px solid #f0e7d5;
+}
+.item-details {
+  flex: 1;
+}
+.item-name {
+  font-weight: 600;
+}
+.item-price {
+  font-weight: 700;
+  color: var(--ink);
+}
+.price-summary {
+  border-top: 2px solid #f0e7d5;
+  padding-top: 16px;
+}
+.price-summary .row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.price-summary .total {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-top: 8px;
+}
+
+/* Forms */
+.form-group {
+  margin-bottom: 18px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: var(--ink);
+}
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e4dccd;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background: var(--parchment);
+  transition: border 0.2s;
+}
+.form-group input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+.form-row {
+  display: flex;
+  gap: 16px;
+}
+.form-row .form-group {
+  flex: 1;
+}
+
+.btn-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+.checkout-btn-primary {
+  background: var(--gold);
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.checkout-btn-primary:hover {
+  background: #b07b1d;
+}
+.btn-secondary {
+  background: transparent;
+  border: 1px solid #e4dccd;
+  color: var(--ink);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Confirmation */
+.confirmation {
+  text-align: center;
+}
+.confirmation-icon {
+  font-size: 4rem;
+  color: #2e7d32;
+  margin-bottom: 16px;
+}
+.order-recap {
+  background: var(--parchment);
+  padding: 16px;
+  border-radius: 8px;
+  text-align: left;
+  margin: 24px 0;
+}
+.order-recap h3 {
+  margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  .progress-line {
+    width: 30px;
+    margin: 0 6px 20px;
+  }
+}

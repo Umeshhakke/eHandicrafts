@@ -1,26 +1,32 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
+import { CartProvider } from './context/CartContext';      // new
 import Register from './pages/Register';
 import Role from './pages/RoleSelect';
 import Merchant from './pages/Merchant';
 import Splash from './pages/Splash';
-import Login from './pages/Login'; // FIX: Capital L
+import Login from './pages/Login';
 import Profileb from './pages/Profileb';
-import Dashboard from './pages/Dashboard';
+import Dashboard from './pages/ProductStore';
+import ProductDetail from './pages/ProductDetail';          // new
+import Checkout from './pages/Checkout';                    // new
 
 function App() {
   return (
     <Router>
-      <Routes>
-        <Route path="/" element={<Splash />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/role" element={<Role />} />
-        <Route path="/register-buyer" element={<Register />} />
-        <Route path="/register-seller" element={<Merchant />} />
-        <Route path="/profileb" element={<Profileb />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-
-      </Routes>
+      <CartProvider>
+        <Routes>
+          <Route path="/" element={<Splash />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/role" element={<Role />} />
+          <Route path="/register-buyer" element={<Register />} />
+          <Route path="/register-seller" element={<Merchant />} />
+          <Route path="/profileb" element={<Profileb />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+          <Route path="/checkout" element={<Checkout />} />
+        </Routes>
+      </CartProvider>
     </Router>
   );
 }

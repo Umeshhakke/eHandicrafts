@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigate, Link } from "react-router-dom";   // Link added
 import "../Styles/Login.css";
 import image1 from '../images/image1.jpg';
 import image2 from '../images/image2.jpg';
@@ -8,8 +9,12 @@ import image4 from '../images/image4.jpg';
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate = useNavigate();
 
-  // Handle form submit
+  // Hardcoded credentials (replace with real auth later)
+  const VALID_EMAIL = "user@handicraft.com";
+  const VALID_PASSWORD = "handmade123";
+
   const handleLogin = (e) => {
     e.preventDefault();
 
@@ -18,17 +23,16 @@ function Login() {
       return;
     }
 
-    // Dummy login logic (replace with backend later)
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    alert("Login Successful 🚀");
+    if (email === VALID_EMAIL && password === VALID_PASSWORD) {
+      navigate("/dashboard");
+    } else {
+      alert("Invalid email or password");
+    }
   };
 
   return (
     <div className="container">
-
-      {/* LEFT SIDE */}
+      {/* LEFT SIDE – rotating diamond images */}
       <div className="left">
         <div className="diamond-container">
           <img src={image1} className="diamond d1" alt="img1" />
@@ -38,13 +42,12 @@ function Login() {
         </div>
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* RIGHT SIDE – login form */}
       <div className="right">
         <div className="login-box glass">
-
           <div className="logo">🪔 eHandicrafts</div>
 
-          <h2>Welcome Back 👋</h2>
+          <h2>Welcome Back</h2>
           <p>Login to your account</p>
 
           <form onSubmit={handleLogin}>
@@ -55,7 +58,6 @@ function Login() {
               onChange={(e) => setEmail(e.target.value)}
               required
             />
-
             <input
               type="password"
               placeholder="Password"
@@ -63,13 +65,23 @@ function Login() {
               onChange={(e) => setPassword(e.target.value)}
               required
             />
-
             <button type="submit">Login</button>
           </form>
 
+          {/* Registration link */}
+          <p style={{ marginTop: '20px', fontSize: '0.85rem' }}>
+            Don't have an account?{" "}
+            <Link to="/role" style={{ color: '#c8902a', fontWeight: 600, textDecoration: 'none' }}>
+              Register
+            </Link>
+          </p>
+
+          {/* optional hint (remove later) */}
+          <p style={{ fontSize: '0.75rem', marginTop: '8px', opacity: 0.7 }}>
+            Demo: {VALID_EMAIL} / {VALID_PASSWORD}
+          </p>
         </div>
       </div>
-
     </div>
   );
 }
