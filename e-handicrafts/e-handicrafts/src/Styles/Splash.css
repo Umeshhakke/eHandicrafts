@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600&family=DM+Sans:wght@300;400&display=swap');
+
+/* Theme variables (self-contained, no external file needed) */
+:root {
+  --ink: #1a1208;
+  --gold: #c8902a;
+  --gold-light: #e8b96a;
+  --parchment: #faf7f2;
+  --ease: cubic-bezier(.4,0,.2,1);
+}
+
+/* ─── Container ───────────────────────── */
+.splash-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--ink);
+  font-family: 'DM Sans', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow background */
+.splash-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(200,144,42,0.15), transparent 70%);
+}
+
+/* ─── Logo ───────────────────────── */
+.splash-logo {
+  width: 100px;
+  height: 100px;
+  opacity: 0;
+  animation: logoReveal 1s var(--ease) 0.3s forwards;
+}
+
+.splash-logo svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* ─── Divider ───────────────────────── */
+.splash-divider {
+  width: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 25px 0;
+  animation: lineExpand 0.8s var(--ease) 1.2s forwards;
+}
+
+/* ─── Text ───────────────────────── */
+.brand-wrapper {
+  text-align: center;
+  opacity: 0;
+  transform: translateY(10px);
+  animation: textRise 1s var(--ease) 1.6s forwards;
+}
+
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  color: var(--parchment);
+  letter-spacing: 3px;
+}
+
+.brand span {
+  color: var(--gold-light);
+}
+
+.tagline {
+  font-size: 12px;
+  color: rgba(250,247,242,0.5);
+  letter-spacing: 4px;
+  margin-top: 10px;
+}
+
+/* ─── Dots ───────────────────────── */
+.splash-dots {
+  position: absolute;
+  bottom: 40px;
+  display: flex;
+  gap: 6px;
+  opacity: 0;
+  animation: fadeIn 0.6s ease 2.5s forwards;
+}
+
+.splash-dots span {
+  width: 6px;
+  height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 1.2s infinite;
+}
+
+.splash-dots span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.splash-dots span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+/* ─── Animations ───────────────────────── */
+@keyframes logoReveal {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lineExpand {
+  from {
+    width: 0;
+  }
+  to {
+    width: 150px;
+  }
+}
+
+@keyframes textRise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,100% {
+    transform: scale(0.8);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}

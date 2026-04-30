@@ -30,17 +30,3 @@
 .seller-details p {
   margin: 5px 0;
 }
-
-.profile-btn {
-  background: #f4c430;
-  color: black;
-  border: none;
-  padding: 8px 15px;
-  border-radius: 8px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.profile-btn:hover {
-  background: #ffd700;
-}

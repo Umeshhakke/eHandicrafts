@@ -1,0 +1,35 @@
+:root {
+  /* Background */
+  --bg-gradient: linear-gradient(135deg, #0f172a, #1e293b);
+
+  /* Glass effect */
+  --card-bg: rgba(255, 255, 255, 0.08);
+  --blur: blur(18px);
+
+  /* Text */
+  --text-primary: #ffffff;
+  --text-secondary: #cbd5f5;
+
+  /* Accent */
+  --accent-blue: #38bdf8;
+  --accent-green: #22c55e;
+  --accent-cyan: #06b6d4;
+
+  /* Button */
+  --btn-gradient: linear-gradient(135deg, #22c55e, #06b6d4);
+  --btn-hover-shadow: rgba(34, 197, 94, 0.5);
+
+  /* Shadows */
+  --card-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+
+  --ink: #1a1208;
+  --gold: #c8902a;
+  --gold-light: #e8b96a;
+  --parchment: #faf7f2;
+
+  --font-display: 'Cormorant Garamond', serif;
+  --font-body: 'DM Sans', sans-serif;
+
+  --ease: cubic-bezier(.4,0,.2,1);
+
+}

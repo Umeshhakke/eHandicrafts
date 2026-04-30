@@ -1,0 +1,106 @@
+@import "./theme.css";
+
+/* Background */
+.seller-container {
+  min-height: 100vh;
+  background: var(--ink); /* dark ink background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "DM Sans", sans-serif;
+  padding: 20px;
+  position: relative;
+}
+
+/* Card */
+.seller-card {
+  width: 90%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 22px;
+
+  background: rgba(250,247,242,0.05); /* soft parchment card */
+  backdrop-filter: blur(15px);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  color: var(--parchment);
+}
+
+/* Heading */
+.seller-card h1 {
+  text-align: center;
+  margin-bottom: 10px;
+  color: var(--gold-light); /* gold heading */
+  font-family: 'Cormorant Garamond', serif;
+}
+
+.seller-card p {
+  text-align: center;
+  margin-bottom: 25px;
+  color: rgba(250,247,242,0.7); /* soft parchment text */
+}
+
+/* Form layout */
+.form-group {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+/* Inputs */
+input,
+textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+
+  background: rgba(250,247,242,0.12); /* translucent parchment input */
+  color: var(--parchment);
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: rgba(250,247,242,0.5);
+}
+
+/* Focus */
+input:focus,
+textarea:focus {
+  box-shadow: 0 0 6px var(--gold-light); /* golden focus glow */
+}
+
+/* Button */
+button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 15px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: var(--gold); /* warm gold button */
+  color: var(--ink); /* dark text for contrast */
+
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover */
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 20px rgba(200,144,42,0.6); /* subtle gold shadow */
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .form-group {
+    flex-direction: column;
+  }
+}

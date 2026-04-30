@@ -6,12 +6,12 @@ function RoleSelect() {
   const navigate = useNavigate();
 
   const handleSelect = (role) => {
-    localStorage.setItem("role", role); // ✅ KEY FIX
-
-    if (role === 'buyer') {
-      navigate('/register-buyer');
-    } else {
-      navigate('/register-seller');
+    if (role === 'buyer')
+    {
+      navigate(`/register-buyer?role=${role}`);
+    }
+    else{
+      navigate(`/register-seller?role=${role}`)
     }
   };
 
@@ -25,6 +25,7 @@ function RoleSelect() {
 
         <div className="role-cards">
 
+          {/* Buyer Card */}
           <div className="card buyer" onClick={() => handleSelect('buyer')}>
             <img 
               src="https://cdn-icons-png.flaticon.com/512/263/263142.png" 
@@ -34,6 +35,7 @@ function RoleSelect() {
             <p>Discover and purchase unique handmade crafts</p>
           </div>
 
+          {/* Seller Card */}
           <div className="card seller" onClick={() => handleSelect('seller')}>
             <img 
               src="https://cdn-icons-png.flaticon.com/512/2921/2921822.png" 

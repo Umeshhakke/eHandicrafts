@@ -1,0 +1,102 @@
+@import "./theme.css"; /* or your variables defined in splash CSS */
+
+/* Background */
+.role-container {
+  height: 100vh;
+  background: var(--ink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  font-family: 'DM Sans', sans-serif;
+  overflow: hidden;
+}
+
+/* Glow overlay */
+.role-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(200,144,42,0.15), transparent 70%);
+}
+
+/* Main content */
+.content {
+  text-align: center;
+  color: var(--parchment);
+  z-index: 1;
+}
+
+.content h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 42px;
+  color: var(--parchment);
+  letter-spacing: 3px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 16px;
+  color: rgba(250,247,242,0.7);
+  margin-bottom: 30px;
+  letter-spacing: 2px;
+}
+
+/* Cards container */
+.role-cards {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Card design */
+.card {
+  width: 260px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(250,247,242,0.05); /* soft parchment glow */
+  backdrop-filter: blur(15px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+  cursor: pointer;
+  transition: 0.3s var(--ease);
+  color: var(--parchment);
+  text-align: center;
+}
+
+/* Card hover effect */
+.card:hover {
+  transform: translateY(-12px) scale(1.05);
+}
+
+/* Images inside cards */
+.card img {
+  width: 70px;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 0 6px var(--gold));
+}
+
+/* Titles */
+.card h2 {
+  margin-bottom: 10px;
+  color: var(--gold-light);
+  font-family: 'Cormorant Garamond', serif;
+}
+
+/* Buyer & Seller hover */
+.buyer:hover {
+  background: rgba(0, 232, 122, 0.2);
+}
+
+.seller:hover {
+  background: rgba(200,144,42,0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .role-cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
+  }
+}

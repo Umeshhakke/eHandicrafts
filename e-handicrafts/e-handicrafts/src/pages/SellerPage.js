@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"; 
-import "../Styles/Seller.css";
+import "../Styles/Dashboard.css";
 import sellersData from "../data/sellers";
 
 function SellerPage() {
   const [sellers, setSellers] = useState([]);
-  const navigate = useNavigate(); 
 
   useEffect(() => {
     setSellers(sellersData);
@@ -14,21 +12,11 @@ function SellerPage() {
   return (
     <div className="store-container">
 
-      {/* HEADER */}
       <header className="store-header">
         <h2>Seller Dashboard</h2>
         <p>Total Sellers: {sellers.length}</p>
-
-        {/* 👇 PROFILE BUTTON */}
-        <button 
-          className="profile-btn"
-          onClick={() => navigate("/profile")}
-        >
-          My Profile
-        </button>
       </header>
 
-      {/* PRODUCT GRID */}
       <div className="product-grid">
         {sellers.map((seller) => (
           <div className="product-card" key={seller.id}>

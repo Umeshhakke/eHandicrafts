@@ -1,66 +1,158 @@
-import React, { useState } from 'react';
-import '../Styles/Merchant.css';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../Styles/Merchant.css";
 
-function SellerRegister() {
-  const [form, setForm] = useState({
-    ownerName: '',
-    email: '',
-    password: '',
-    businessName: '',
-    phone: '',
-    address: '',
-    category: '',
-    description: ''
+function Merchant() {
+  const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    ownerName: "",
+    businessName: "",
+    email: "",
+    password: "",
+    phone: "",
+    category: "",
+    address: "",
+    description: "",
+    upi: "",
+    bank: "",
+    card: ""
   });
 
   const handleChange = (e) => {
-    setForm({
-      ...form,
+    setFormData({
+      ...formData,
       [e.target.name]: e.target.value
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(form);
+
+    // Save seller data
+    localStorage.setItem("seller", JSON.stringify(formData));
+    localStorage.setItem("role", "seller");
+
+    alert("Business Registered Successfully!");
+
+    navigate("/seller"); // go to dashboard
   };
 
   return (
-    <div className="seller-container">
-      <div className="seller-card">
+    <div className="merchant-container">
+      <div className="merchant-card">
 
-        <h1>Start Your Business</h1>
-        <p>Join eHandicrafts and sell your handmade products</p>
+        <h2>Start Your Business</h2>
+        <p className="subtitle">
+          Join eHandicrafts and sell your handmade products
+        </p>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="merchant-form">
 
-          <div className="form-group">
-            <input name="ownerName" placeholder="Owner Name" onChange={handleChange} required />
-            <input name="businessName" placeholder="Business Name" onChange={handleChange} required />
+          {/* Row 1 */}
+          <div className="form-row">
+            <input
+              type="text"
+              name="ownerName"
+              placeholder="Owner Name"
+              value={formData.ownerName}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="text"
+              name="businessName"
+              placeholder="Business Name"
+              value={formData.businessName}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <div className="form-group">
-            <input type="email" name="email" placeholder="Email" onChange={handleChange} required />
-            <input type="password" name="password" placeholder="Password" onChange={handleChange} required />
+          {/* Row 2 */}
+          <div className="form-row">
+            <input
+              type="email"
+              name="email"
+              placeholder="Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+            />
+
+            <input
+              type="password"
+              name="password"
+              placeholder="Password"
+              value={formData.password}
+              onChange={handleChange}
+              required
+            />
           </div>
 
-          <div className="form-group">
-            <input name="phone" placeholder="Phone Number" onChange={handleChange} required />
-            <input name="category" placeholder="Business Category (e.g. Handicrafts)" onChange={handleChange} />
+          {/* Row 3 */}
+          <div className="form-row">
+            <input
+              type="text"
+              name="phone"
+              placeholder="Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+            />
+
+            <input
+              type="text"
+              name="category"
+              placeholder="Business Category"
+              value={formData.category}
+              onChange={handleChange}
+            />
           </div>
 
-          <textarea 
-            name="address" 
+          {/* Address */}
+          <textarea
+            name="address"
             placeholder="Business Address"
+            value={formData.address}
             onChange={handleChange}
-            rows="2"
           />
 
-          <textarea 
-            name="description" 
+          {/* Description */}
+          <textarea
+            name="description"
             placeholder="Describe your products..."
+            value={formData.description}
             onChange={handleChange}
-            rows="3"
+          />
+
+          {/* Payment Section */}
+          <h4 className="section-title">Payment Details</h4>
+
+          <div className="form-row">
+            <input
+              type="text"
+              name="upi"
+              placeholder="UPI ID"
+              value={formData.upi}
+              onChange={handleChange}
+            />
+
+            <input
+              type="text"
+              name="bank"
+              placeholder="Bank Account Number"
+              value={formData.bank}
+              onChange={handleChange}
+            />
+          </div>
+
+          <input
+            type="text"
+            name="card"
+            placeholder="Card Number"
+            value={formData.card}
+            onChange={handleChange}
           />
 
           <button type="submit">Register Business</button>
@@ -71,4 +163,4 @@ function SellerRegister() {
   );
 }
 
-export default SellerRegister;
+export default Merchant;

@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-# eHandicrafts
-
-## Fetures 
-#### Login Page
-#### Registration of Merchant and Customer
-#### Product display 
-#### Add Product by Merchant
-#### Product Purchase by Customer
-=======
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -78,4 +68,3 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
->>>>>>> 6800e793 (Added seller dashboard and login role logic)
